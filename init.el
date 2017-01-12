@@ -20,7 +20,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(package-selected-packages
    (quote
-    (counsel swiper smex yasnippet ace-jump-mode solarized-theme color-theme-solarized on-screen))))
+    (org-pdfview popwin counsel swiper smex yasnippet ace-jump-mode solarized-theme color-theme-solarized on-screen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,8 +44,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq-default inhibit-splash-screen t)
-
-
 
 
 (defun open-my-init-file()
@@ -103,8 +101,8 @@
 			   swiper
 			   counsel
 			   smartparens
+			   popwin
 			   ) "Default packages")
-
 
 ;; M-x package auto
 ;;(defvar package-selected-packages '(append package-selected-packages  yingdai/packages))
@@ -195,7 +193,41 @@
 
 
 ;;smartparens
-(require 'smartparens-config)
 (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 
 (smartparens-global-mode t)
+;单引号
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+
+(global-auto-revert-mode t)
+(setq auto-save-default nil)
+
+;; 用简单的缩写代替复杂的字符  例如 输入 yd 然后按 SPACE 键
+;; Reference: https://www.emacswiki.org/emacs/AbbrevMode
+(setq-default abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table
+  '(
+        ("yd" "yingdai")
+	("zsmly" "☺")
+	("yemail" "yingdai123@gmail.com")
+	))
+
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;http://book.emacs-china.org/#orgheadline13
+
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; 主动加载 Dired Mode
+;; (require 'dired)
+;; (defined-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+
+;; 延迟加载
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
+
+(require 'org-install)
+
+(require 'org)

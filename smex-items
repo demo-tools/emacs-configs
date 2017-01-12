@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ org-version
+ package-install
+ package-delete
+ package-install-file
+ doctor
+ help
  recentf-open-files
- Info-help
- info
- find-variable
- smartparens-mode
- package-autoremove
- customize-group
 )
 
 ;; ----- smex-data -----
@@ -20,4 +20,10 @@
  (recentf-open-files . 2)
  (info . 2)
  (Info-help . 2)
+ (help . 2)
+ (doctor . 1)
+ (package-install-file . 1)
+ (package-delete . 1)
+ (package-install . 1)
+ (org-version . 1)
 )
