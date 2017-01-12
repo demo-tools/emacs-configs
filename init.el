@@ -228,6 +228,9 @@
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 
-(require 'org-install)
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/texlive/2016/bin/x86_64-darwin/"))
 
-(require 'org)
+(setq exec-path (append exec-path '("/usr/local/texlive/2016/bin/x86_64-darwin/")))
+
+(setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f" 
+                                                    "xelatex -interaction nonstopmode %f"))

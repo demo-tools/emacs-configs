@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ org-reload
  org-version
+ company-mode
+ load-library
+ iimage-mode
  package-install
  package-delete
- package-install-file
- doctor
- help
- recentf-open-files
 )
 
 ;; ----- smex-data -----
@@ -25,5 +25,9 @@
  (package-install-file . 1)
  (package-delete . 1)
  (package-install . 1)
- (org-version . 1)
+ (org-version . 2)
+ (iimage-mode . 1)
+ (load-library . 1)
+ (org-reload . 2)
+ (company-mode . 1)
 )
