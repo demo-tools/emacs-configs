@@ -20,7 +20,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" default)))
  '(package-selected-packages
    (quote
-    (org-pdfview popwin counsel swiper smex yasnippet ace-jump-mode solarized-theme color-theme-solarized on-screen))))
+    (spacemacs-theme org-pdfview popwin counsel swiper smex yasnippet ace-jump-mode solarized-theme color-theme-solarized on-screen))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -102,6 +102,7 @@
 			   counsel
 			   smartparens
 			   popwin
+			   spacemacs-theme
 			   ) "Default packages")
 
 ;; M-x package auto
@@ -131,18 +132,24 @@
 
 
 
-;==========================================================
-; set the emacs theme
-(require 'color-theme)
-(color-theme-initialize)  
-;; 这个是你选择的主题，后面的calm forest就是它的名字，注意使用小写。
-(color-theme-solarized-dark)
+;; ;==========================================================
+;; ; set the emacs theme
+;; (require 'color-theme)
+;; (color-theme-initialize)  
+;; ;; 这个是你选择的主题，后面的calm forest就是它的名字，注意使用小写。
+;; (color-theme-solarized-dark)
 
 					; if you want to install a theme
 					;first M-x package-install solarized-theme
 					;and M-x load-theme solarized-dark not solarized
 					;can open the file of emacs.d/elpa/solarized-theme-20161222.109 and will see some files of elisp
 
+
+
+(require 'spacemacs-common)
+(deftheme spacemacs-dark "Spacemacs theme, the dark version")
+(create-spacemacs-theme 'dark 'spacemacs-dark)
+(provide-theme 'spacemacs-dark)
 
 
 ;; org

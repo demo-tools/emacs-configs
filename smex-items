@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ customize
  org-reload
  org-version
  company-mode
  load-library
  iimage-mode
  package-install
- package-delete
 )
 
 ;; ----- smex-data -----
@@ -28,6 +28,7 @@
  (org-version . 2)
  (iimage-mode . 1)
  (load-library . 1)
- (org-reload . 2)
+ (org-reload . 3)
  (company-mode . 1)
+ (customize . 1)
 )
